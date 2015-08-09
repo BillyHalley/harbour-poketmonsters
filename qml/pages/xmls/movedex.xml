@@ -1,0 +1,18 @@
+<movedex>
+    <index>
+        <name>Null</name>
+        <type>Null</type>
+        <category>Null</category>
+        <power>0</power>
+        <accuracy>0</accuracy>
+        <pp>0</pp>
+    </index>
+    <index>
+        <name>Tackle</name>
+        <type>Normal</type>
+        <category>Physical</category>
+        <power>50</power>
+        <accuracy>100</accuracy>
+        <pp>35</pp>
+    </index>
+</movedex>
