@@ -20,7 +20,6 @@ OTHER_FILES += qml/harbour-pocketmonsters.qml \
     qml/cover/CoverPage.qml \
     qml/pages/FirstPage.qml \
     qml/pages/SecondPage.qml \
-    rpm/harbour-pocketmonsters.changes.in \
     rpm/harbour-pocketmonsters.spec \
     rpm/harbour-pocketmonsters.yaml \
     translations/*.ts \
@@ -41,7 +40,8 @@ OTHER_FILES += qml/harbour-pocketmonsters.qml \
     qml/pages/Functions.qml \
     qml/pages/Move.qml \
     qml/pages/Console.qml \
-    qml/pages/pics/001.gif
+    qml/pages/pics/001.gif \
+    rpm/harbour-pocketmonsters.changes
 
 
 # to disable building translations every time, comment out the
