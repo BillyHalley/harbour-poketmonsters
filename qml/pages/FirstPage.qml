@@ -30,57 +30,133 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-
+import harbour.pocketmonsters.Manager 1.0
 
 Page {
     id: page
 
     property bool game: false
     property bool debug: false
-    property bool idle: false
-    property bool loading: false
-    property bool waiting: false
+
+    property bool idle: false // waiting for console click
+    property bool loading: false // console is displaying text
+    property bool waiting: false // waiting for move
+
+    property int moment: 0 // 0: To choice , 1: To first turn, 2: To second turn
+    onMomentChanged: console.log(moment)
+    property int turn: 0
+    property int moveIndex
+    property int moveRand
+
+    Manager { id: manager }
+
+    property variant fetch
+    property variant load
+    property variant moves
+    property variant enemyString
+
+    function loadStarterEnemy(enemyString) {
+        fetch = manager.fetchMonster(enemyString[0],enemyString[2])
+        enemy.fetch(fetch)
+        moves = manager.assignMoves(enemy.movesString)
+        moveset.loadEnemyMoves(moves)
+        functions.updateConsole("A Wild " + enemy.name + " appeared!")
+        moment = 0
+    }
+
+    function loadEnemy() {
+        var randId = Math.floor ( Math.random() * 3 + 1 )
+        var randLevel = Math.floor( Math.random() * 7 ) + ( active.level - 3 )
+        fetch = manager.fetchMonster(randId,randLevel)
+        enemy.fetch(fetch)
+        enemy.life = enemy.hp
+        moves = manager.assignMoves(enemy.movesString)
+        moveset.loadEnemyMoves(moves)
+        active.atkStage = 0
+        active.defStage = 0
+        active.satkStage = 0
+        active.sdefStage = 0
+        active.speStage = 0
+        active.accuracyStage = 0
+        active.evasionStage = 0
+        enemy.atkStage = 0
+        enemy.defStage = 0
+        enemy.satkStage = 0
+        enemy.sdefStage = 0
+        enemy.speStage = 0
+        enemy.accuracyStage = 0
+        enemy.evasionStage = 0
+        moveset.effectsOnActive = []
+        moveset.effectsOnEnemy = []
+        functions.updateConsole("A Wild " + enemy.name + " appeared!")
+        moment = 0
+    }
+
+    onStatusChanged: {
+        if ( status === PageStatus.Active ) {
+            load = manager.loadActive()
+            fetch = manager.fetchMonster(load[0],load[4])
+            active.fetch(fetch)
+            active.load(load)
+            moves = manager.assignMoves(active.movesString)
+            console.log(active.movesId)
+            console.log(moves)
+            active.loadMoves(moves,active.movesString)
+            moveset.loadMoves(moves,active.movesString)
+            if ( enemyString === undefined ) {
+                moment = 1
+                functions.updateConsole("What do you want to do?\nChoose in the pulley menu!")
+            } else
+                loadStarterEnemy(enemyString)
+        }
+    }
+
 
     Functions {
         id: functions
     }
 
-    Move { id: move1 } Move { id: move2 } Move { id: move3 } Move { id: move4 }
-    Move { id: enemyMove1 } Move { id: enemyMove2 } Move { id: enemyMove3 } Move { id: enemyMove4 }
+    function heal() {
+        moveset.heal()
+        active.heal()
+        moment = 1
+        functions.updateConsole(active.name + " has been healed!")
+    }
 
-    Move { id: activeMove } Move { id: enemyMove }
 
     SilicaFlickable {
         anchors.fill: parent
 
         PullDownMenu {
             MenuItem {
+                text: qsTr("Save")
+                onClicked: {
+                    console.log("Save Monster Clicked")
+                    var list = moveset.returnPp()
+                    active.string[14] = list[0]
+                    active.string[16] = list[1]
+                    active.string[18] = list[2]
+                    active.string[20] = list[3]
+                    manager.saveActive(active.string)
+                }
+                enabled: active.life > 0
+            }
+            MenuItem {
+                text: qsTr("Search Monster")
+                onClicked: {
+                    console.log("Search Monster Clicked")
+                    loadEnemy()
+                }
+                enabled: active.life > 0
+            }
+            MenuItem {
                 text: qsTr("Heal")
                 onClicked: {
-                    idle = true
-                    functions.heal()
-                    functions.generateEnemy(enemy)
+                    console.log("Heal Clicked")
+                    heal()
                 }
-                visible: game
             }
-            MenuItem {
-                text: qsTr("Find monster")
-                onClicked: {
-                    idle = true
-                    functions.generateEnemy(enemy)
-                }
-                visible: game
-            }
-            MenuItem {
-                text: qsTr("Start game")
-                onClicked: {
-                    functions.generateActive(active)
-                    functions.generateEnemy(enemy)
-                    game = true
-                }
-                visible: !game
-            }
-            enabled: !idle && !loading && !waiting
+            enabled: !idle && !waiting && !loading
         }
 
         contentHeight: column.height
@@ -92,36 +168,20 @@ Page {
             PageHeader {
                 title: qsTr("PocketMonsters")
             }
+
         }
         Board {
             x: Theme.paddingLarge
             anchors.top: column.bottom
+
             Monster {
                 id: active
-                indexInt: Math.random()*3 + 1
-                level: 80
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: functions.generateActive(active)
-                    enabled: idle && !loading && !waiting && debug
-                }
             }
             Monster {
                 id: enemy
-                anchors {
-                    left: active.right
-                    leftMargin: Theme.paddingLarge
-                    top: active.top
-                }
-                indexInt: Math.random()*3 + 1
-                level: 80
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: functions.generateEnemy(enemy)
-                    enabled: idle && !loading && !waiting && debug
-                }
+                anchors.left: active.right
+                anchors.leftMargin: Theme.paddingLarge
             }
-
             Moveset {
                 id: moveset
                 anchors {
@@ -130,7 +190,6 @@ Page {
                     left: active.left
                 }
             }
-
             Console {
                 id: gameConsole
                 anchors {

@@ -15,26 +15,30 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Search Monster</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Heal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Find monster</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Start game</source>
+        <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>SecondPage</name>
+    <name>ProfOak</name>
     <message>
-        <source>Nested Page</source>
+        <source>PocketMonsters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Item</source>
+        <source>Load</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>NewGame</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

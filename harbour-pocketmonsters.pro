@@ -14,34 +14,34 @@ TARGET = harbour-pocketmonsters
 
 CONFIG += sailfishapp
 
-SOURCES += src/harbour-pocketmonsters.cpp
+SOURCES += src/harbour-pocketmonsters.cpp \
+    lib/manager.cpp
 
 OTHER_FILES += qml/harbour-pocketmonsters.qml \
     qml/cover/CoverPage.qml \
     qml/pages/FirstPage.qml \
-    qml/pages/SecondPage.qml \
     rpm/harbour-pocketmonsters.spec \
     rpm/harbour-pocketmonsters.yaml \
     translations/*.ts \
     harbour-pocketmonsters.desktop \
-    qml/pages/Monster.qml \
-    pics/001.png \
-    stats/000.xml \
-    stats/001.xml \
-    stats/003.xml \
-    stats/002.xml \
-    qml/pages/stats/002.xml \
-    qml/pages/stats/000.xml \
-    qml/pages/stats/stats.xml \
-    qml/pages/xmls/pokedex.xml \
     qml/pages/xmls/movedex.xml \
+    qml/pages/xmls/pokedex.xml \
     qml/pages/Board.qml \
     qml/pages/Moveset.qml \
     qml/pages/Functions.qml \
-    qml/pages/Move.qml \
     qml/pages/Console.qml \
+    rpm/harbour-pocketmonsters.changes \
+    qml/pages/xmls/001.xml \
+    qml/pages/xmls/002.xml \
+    qml/pages/xmls/003.xml \
+    qml/pages/xmls/active.xml \
+    qml/pages/pics/002.gif \
+    qml/pages/pics/003.gif \
+    qml/pages/pics/717.gif \
     qml/pages/pics/001.gif \
-    rpm/harbour-pocketmonsters.changes
+    qml/pages/ProfOak.qml \
+    qml/pages/Monster.qml \
+    qml/pages/Move.qml
 
 
 # to disable building translations every time, comment out the
@@ -53,4 +53,7 @@ CONFIG += sailfishapp_i18n
 # following TRANSLATIONS line. And also do not forget to
 # modify the localized app name in the the .desktop file.
 TRANSLATIONS += translations/harbour-pocketmonsters-de.ts
+
+HEADERS += \
+    lib/manager.h
 

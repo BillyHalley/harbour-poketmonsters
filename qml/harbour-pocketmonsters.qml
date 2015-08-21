@@ -34,7 +34,8 @@ import "pages"
 
 ApplicationWindow
 {
-    initialPage: Component { FirstPage { } }
+    id: appWindow
+    initialPage: Component { ProfOak { } }
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
 }
 

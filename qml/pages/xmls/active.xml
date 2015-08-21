@@ -1,0 +1,20 @@
+<index id="" > 0
+    <name></name> 1
+    <type1></type1> 2
+    <type2></type2> 3
+    <level></level> 4
+    <exp></exp> 5
+    <life></life> 6
+    <hpev></hpev> 7
+    <atkev></atkev> 8
+    <defev></defev> 9
+    <satkev></satkev> 10
+    <sdefev></sdefev> 11
+    <speev></speev> 12
+    <moveset>
+        <move id = "" pp = "" /> 13 14
+        <move id = "" pp = "" /> 15 16
+        <move id = "" pp = "" /> 17 18
+        <move id = "" pp = "" /> 19 20
+    </moveset>
+</index>

@@ -33,6 +33,7 @@
 #endif
 
 #include <sailfishapp.h>
+#include "lib/manager.h"
 
 
 int main(int argc, char *argv[])
@@ -45,6 +46,18 @@ int main(int argc, char *argv[])
     //   - SailfishApp::pathTo(QString) to get a QUrl to a resource file
     //
     // To display the view, call "show()" (will show fullscreen on device).
+
+
+    qmlRegisterType<Manager, 1>("harbour.pocketmonsters.Manager", 1, 0, "Manager");
+    /*
+    QGuiApplication *app = SailfishApp::application(argc, argv);
+    QQuickView *view = SailfishApp::createView();
+    Manager *manager = new Manager();
+    view->rootContext()->setContextProperty("manager", manager);
+    view->setSource(SailfishApp::pathTo("qml/harbour-pocketmonsters.qml"));
+    view->showFullScreen();
+    return app->exec();
+*/
 
     return SailfishApp::main(argc, argv);
 }

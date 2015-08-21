@@ -1,0 +1,24 @@
+<index id="003" >
+    <name>Squirtle</name>
+    <type1>Water</type1>
+    <type2>null</type2>
+    <hp>44</hp>
+    <atk>48</atk>
+    <def>65</def>
+    <satk>50</satk>
+    <sdef>64</sdef>
+    <spe>43</spe>
+    <basehpev>0</basehpev>
+    <baseatkev>0</baseatkev>
+    <basedefev>1</basedefev>
+    <basesatkev>0</basesatkev>
+    <basesdefev>0</basesdefev>
+    <basespeev>0</basespeev>
+    <speciesexp>63</speciesexp>
+    <moveset>
+        <move level = "0" id = "33" />
+        <move level = "4" id = "39" />
+        <move level = "7" id = "55" />
+        <move level = "10" id = "110" />
+    </moveset>
+</index>

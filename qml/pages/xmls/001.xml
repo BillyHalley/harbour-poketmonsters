@@ -1,0 +1,24 @@
+<index id="001" >
+    <name>Bulbasaur</name>
+    <type1>Grass</type1>
+    <type2>Poison</type2>
+    <hp>45</hp>
+    <atk>49</atk>
+    <def>49</def>
+    <satk>65</satk>
+    <sdef>65</sdef>
+    <spe>45</spe>
+    <basehpev>0</basehpev>
+    <baseatkev>0</baseatkev>
+    <basedefev>0</basedefev>
+    <basesatkev>1</basesatkev>
+    <basesdefev>0</basesdefev>
+    <basespeev>0</basespeev>
+    <speciesexp>64</speciesexp>
+    <moveset>
+        <move level = "0" id = "33" />
+        <move level = "3" id = "45" />
+        <move level = "7" id = "73" />
+        <move level = "9" id = "22" />
+    </moveset>
+</index>

@@ -27,15 +27,30 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Search Monster</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Heal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Find monster</source>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ProfOak</name>
+    <message>
+        <source>PocketMonsters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Start game</source>
+        <source>Load</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>NewGame</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -43,11 +58,11 @@
     <name>SecondPage</name>
     <message>
         <source>Nested Page</source>
-        <translation>Unterseite</translation>
+        <translation type="vanished">Unterseite</translation>
     </message>
     <message>
         <source>Item</source>
-        <translation>Element</translation>
+        <translation type="vanished">Element</translation>
     </message>
 </context>
 </TS>

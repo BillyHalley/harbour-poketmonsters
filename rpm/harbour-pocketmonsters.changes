@@ -8,7 +8,19 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
-* Sun Aug 09 2015 Billy Halley <ziobilly94@gmail.com> 0.0.1-1
-- Initial Release
+* Sun Aug 09 2015 Billy Halley <ziobilly94@gmail.com> 0.0.2-1
+- v0.0.2
+-- Changed management of xml files from QML to C++ with QXmlStreamReader
+-- Included moves:
+--   Scratch, Vine Whip,Tail Whip, Growl, Ember, Water Gun, Leech Seed, Smokescreen, Withdraw
+--   Basically the first 4 moves the starters can learn
+-- Pokèmons can learn these moves when level up
+-- Included effectiveness of moves
+-- Included in-battle status changes: atk, def, satk, sdef, spe, accuracy, evasion
+-- Possibility to save/load monster
+-- Included "Prof Oak" as first page
+
+# - v0.0.1
+# -- Initial Release
 
 
